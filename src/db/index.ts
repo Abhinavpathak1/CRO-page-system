@@ -20,7 +20,7 @@ if (pool && process.env.NODE_ENV !== "production") {
 
 export const db = pool ? drizzle(pool) : null;
 
-export function getDb() {
+export function getDb(): NonNullable<typeof db> {
   if (!db) {
     throw new Error("DATABASE_URL is required");
   }
