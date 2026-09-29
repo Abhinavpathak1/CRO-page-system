@@ -4,6 +4,8 @@ import { trials, sites, auditEvents, activities } from "@/db/schema";
 import { sql } from "drizzle-orm";
 import { createHash } from "crypto";
 
+export const dynamic = "force-dynamic";
+
 function hash(prev: string, payload: string) {
   return createHash("sha256").update(prev + payload).digest("hex").slice(0, 32);
 }
